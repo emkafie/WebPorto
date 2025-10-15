@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farrel M. Kafie - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --dark-bg: #0a051d;
+        --glass-bg: rgba(255, 255, 255, 0.05);
+        --border-color: rgba(255, 255, 255, 0.2);
+        --text-light: #e0e7ff;
+        --text-gray: #a0a0a0;
+        --accent-purple: #8b5cf6;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--text-gray);
+        background-color: var(--dark-bg);
+        overflow-x: hidden;
+        position: relative;
+        background: radial-gradient(circle at top left, #1a104a, #0a051d);
+      }
+
+      /* ---- Floating gradient bubbles ---- */
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.4;
+        filter: blur(40px);
+        animation: float 18s infinite ease-in-out;
+      }
+
+      .bubble:nth-child(1) {
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg, #8b5cf6, #ec4899);
+        top: 20%;
+        left: -10%;
+        animation-delay: 0s;
+      }
+      .bubble:nth-child(2) {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        bottom: 10%;
+        right: -10%;
+        animation-delay: 3s;
+      }
+      .bubble:nth-child(3) {
+        width: 400px;
+        height: 400px;
+        background: linear-gradient(135deg, #22d3ee, #8b5cf6);
+        top: 60%;
+        left: 30%;
+        animation-delay: 6s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-40px) scale(1.1);
+        }
+      }
+
+      .glass-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        backdrop-filter: blur(12px);
+        border-radius: 1rem;
+        transition: all 0.3s ease;
+      }
+      .glass-card:hover {
+        border-color: var(--accent-purple);
+        transform: translateY(-5px);
+        box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+      }
+
+      .btn-glass {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(139, 92, 246, 0.1);
+        border: 1px solid var(--accent-purple);
+        color: var(--text-light);
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+      .btn-glass:hover {
+        background: var(--accent-purple);
+        color: white;
+        box-shadow: 0 0 15px var(--accent-purple);
+        transform: scale(1.05);
+      }
+
+      .text-glow {
+        text-shadow: 0 0 12px var(--accent-purple);
+      }
+
+      /* Smooth fade + slide animation for sections */
+      [data-sr] {
+        opacity: 1;
+        transform: translateY(40px);
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body class="antialiased relative justify-center items-center">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <nav
+      id="navbar"
+      class="fixed w-full top-0 z-50 transition-all duration-300 ease-in-out"
+    >
+      <div
+        id="navbar-inner"
+        class="max-w-5xl mx-auto px-6 lg:px-8 mt-4 py-3 bg-white/5 backdrop-blur-md border border-white/20 rounded-full transition-all duration-300"
+      >
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-xl font-bold text-white tracking-wide"
+            >FARREL</a
+          >
+          <ul class="hidden md:flex items-center space-x-8">
+            <li>
+              <a href="#about" class="hover:text-white transition-colors"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="#skills" class="hover:text-white transition-colors"
+                >Skills</a
+              >
+            </li>
+            <li>
+              <a href="#projects" class="hover:text-white transition-colors"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a href="#education" class="hover:text-white transition-colors"
+                >Education</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-white transition-colors"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      class="text-white pt-32 pb-16 min-h-screen flex items-center"
+      data-sr
+    >
+      <div
+        class="max-w-5xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12"
+      >
+        <div class="md:w-1/2 text-center md:text-left">
+          <h1
+            class="text-5xl md:text-7xl font-extrabold text-white leading-tight text-glow"
+          >
+            Creative Digital Solutions
+          </h1>
+          <p class="mt-6 text-lg text-text-gray">
+            Crafting intuitive digital experiences where clean code meets
+            thoughtful, user-centric design.
+          </p>
+          <a href="#projects" class="btn-glass mt-8">
+            <i class="fa-solid fa-arrow-right"></i> See my work
+          </a>
+        </div>
+        <div class="w-full md:w-1/2">
+          <img
+            src="profile.png"
+            alt="Farrel Muchammad Kafie"
+            class="rounded-2xl grayscale hover:grayscale-0 transition-all duration-500 shadow-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-24" data-sr>
+      <div class="max-w-5xl mx-auto px-6 lg:px-8 grid md:grid-cols-3 gap-12">
+        <div>
+          <h2 class="text-xs uppercase tracking-widest text-text-gray mb-4">
+            (About Me)
+          </h2>
+          <p class="text-2xl font-bold text-white">
+            As a creative technologist, I build user-centered and impactful
+            digital solutions.
+          </p>
+        </div>
+        <div class="md:col-span-2 grid sm:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-2">
+              <i class="fa-solid fa-pen-nib text-purple-400 mr-2"></i>UI/UX
+              Design
+            </h3>
+            <p>
+              I create clean and intuitive designs that engage users while
+              maintaining visual harmony.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white mb-2">
+              <i class="fa-solid fa-code text-purple-400 mr-2"></i>Web
+              Development
+            </h3>
+            <p>
+              From structure to styling, I craft robust, scalable, and seamless
+              digital experiences.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white mb-2">
+              <i
+                class="fa-solid fa-mobile-screen-button text-purple-400 mr-2"
+              ></i
+              >Mobile Development
+            </h3>
+            <p>
+              Bringing concepts to life with native and cross-platform
+              applications.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white mb-2">
+              <i
+                class="fa-solid fa-magnifying-glass-chart text-purple-400 mr-2"
+              ></i
+              >UX Research
+            </h3>
+            <p>
+              Turning user insights into actionable design decisions for better
+              experiences.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-24" data-sr>
+      <div class="max-w-5xl mx-auto px-6 lg:px-8">
+        <h2 class="text-3xl text-center font-bold text-white mb-12">
+          Skills Matrix
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="glass-card p-6 flex gap-6 items-center">
+            <i class="fa-solid fa-palette text-4xl text-purple-400"></i>
+            <div>
+              <h3 class="text-xl font-bold text-white">Design</h3>
+              <p>UI/UX Principles, Prototyping, Usability Testing</p>
+            </div>
+          </div>
+          <div class="glass-card p-6 flex gap-6 items-center">
+            <i class="fa-solid fa-laptop-code text-4xl text-purple-400"></i>
+            <div>
+              <h3 class="text-xl font-bold text-white">Frontend</h3>
+              <p>HTML, CSS, JavaScript, Tailwind CSS</p>
+            </div>
+          </div>
+          <div class="glass-card p-6 flex gap-6 items-center">
+            <i class="fa-solid fa-mobile text-4xl text-purple-400"></i>
+            <div>
+              <h3 class="text-xl font-bold text-white">Mobile</h3>
+              <p>Flutter, Dart, Android Native</p>
+            </div>
+          </div>
+          <div class="glass-card p-6 flex gap-6 items-center">
+            <i class="fa-solid fa-toolbox text-4xl text-purple-400"></i>
+            <div>
+              <h3 class="text-xl font-bold text-white">Tools</h3>
+              <p>Figma, GitHub, VS Code</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-24" data-sr>
+      <div class="max-w-5xl mx-auto px-6 lg:px-8">
+        <h2 class="text-3xl text-center font-bold text-white mb-12">
+          Featured Projects
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="glass-card overflow-hidden">
+            <img
+              src="https://via.placeholder.com/600x338/1a1a1a/4a4a4a?text=Achievement+System"
+              class="w-full h-48 object-cover hover:scale-110 transition-transform duration-700"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">
+                Achievement & Competition System
+              </h3>
+              <p>
+                Tracks student achievements and gives personalized competition
+                suggestions.
+              </p>
+            </div>
+          </div>
+          <div class="glass-card overflow-hidden">
+            <img
+              src="https://via.placeholder.com/600x338/1a1a1a/4a4a4a?text=TerraTopia"
+              class="w-full h-48 object-cover hover:scale-110 transition-transform duration-700"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">
+                TerraTopia: Agri-Tech Platform
+              </h3>
+              <p>
+                AI-powered platform that enhances agricultural efficiency for
+                Indonesian farmers.
+              </p>
+            </div>
+          </div>
+          <div class="md:col-span-2 flex justify-center">
+            <div
+              class="glass-card overflow-hidden w-full md:w-[calc(50%-1rem)]"
+            >
+              <img
+                src="https://via.placeholder.com/600x338/1a1a1a/4a4a4a?text=Student+Clearance"
+                class="w-full h-48 object-cover hover:scale-110 transition-transform duration-700"
+                alt="Student Clearance System Project"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-2">
+                  Student Clearance System
+                </h3>
+                <p>
+                  A web-based system for managing student liability clearance to
+                  streamline graduation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="py-24" data-sr>
+      <div class="max-w-5xl mx-auto px-6 lg:px-8">
+        <h2 class="text-3xl text-center font-bold text-white mb-12">
+          Education
+        </h2>
+        <div class="max-w-2xl mx-auto space-y-8">
+          <div class="glass-card p-6">
+            <p class="text-sm text-text-gray">2023 - PRESENT</p>
+            <h3 class="text-xl font-bold text-white">
+              Politeknik Negeri Malang
+            </h3>
+            <p>Undergraduate in Informatics Engineering</p>
+          </div>
+          <div class="glass-card p-6">
+            <p class="text-sm text-text-gray">2020 - 2023</p>
+            <h3 class="text-xl font-bold text-white">SMAN 1 Tumpang</h3>
+            <p>Language and Culture Class</p>
+          </div>
+          <div class="glass-card p-6">
+            <p class="text-sm text-text-gray">2017 - 2020</p>
+            <h3 class="text-xl font-bold text-white">SMPN 1 Poncokusumo</h3>
+          </div>
+          <div class="glass-card p-6">
+            <p class="text-sm text-text-gray">2011 - 2017</p>
+            <h3 class="text-xl font-bold text-white">MI Sunan Muria</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-24 text-center" data-sr>
+      <h2 class="text-3xl font-bold text-white">Let's Connect</h2>
+      <p class="mt-4 text-lg text-text-gray max-w-xl mx-auto">
+        Open to new opportunities and collaborations. Feel free to send a
+        message.
+      </p>
+      <div class="mt-8 flex justify-center gap-6">
+        <a href="mailto:khafi.farel77@gmail.com" class="btn-glass">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+            ></path>
+            <path
+              d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+            ></path>
+          </svg>
+          <span>Email</span>
+        </a>
+        <a href="https://github.com/emkafie" class="btn-glass">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 5.424c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.578.688.48A10.003 10.003 0 0020 10c0-5.523-4.477-10-10-10z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/farrel-muchammad-kafie/" class="btn-glass">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.388 0-1.601 1.086-1.601 2.207v4.248H8.014V9h2.55v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.71zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.128 0c0 1.14-.925 2.065-2.065 2.065zm1.336 8.905H4V9h2.672v7.338zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="py-8 text-center text-text-gray border-t border-white/20">
+      &copy; 2025 Farrel Muchammad Kafie. All Rights Reserved.
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        ScrollReveal().reveal("[data-sr]", {
+          distance: "40px",
+          duration: 1000,
+          easing: "ease-out",
+          origin: "bottom",
+          interval: 150,
+        });
+      });
+    </script>
+  </body>
+</html>
